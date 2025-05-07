@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Page</title>
+  <style>
+    :root {
+      --bg: #f4f4f4;
+      --text: #333;
+      --accent: #007acc;
+      --card-bg: #fff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #eaeaea;
+      --accent: #1e90ff;
+      --card-bg: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+      padding-bottom: 50px;
+    }
+
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .toggle-theme {
+      background: white;
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div><strong>John Doe</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-theme" onclick="toggleTheme()">☀️</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h1>About Me</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis tincidunt nunc, eget facilisis turpis varius in. Proin nec odio at elit suscipit commodo.</p>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et.</p>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Aliquam erat volutpat. Integer vitae neque sit amet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 John Doe — Built with ❤️ and GitHub Pages
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+      document.querySelector('.toggle-theme').textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    }
+  </script>
+</body>
+</html>
